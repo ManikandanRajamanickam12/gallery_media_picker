@@ -170,6 +170,14 @@ class MediaPickerController extends ChangeNotifier {
     });
   }
 
+  /// Clear all selected media and reset picker state
+void clearSelection() {
+  picked.value = [];
+  pickedFile.value = [];
+  notifyListeners();
+}
+
+
   /// Dispose the controller and clear listeners.
   @override
   void dispose() {
