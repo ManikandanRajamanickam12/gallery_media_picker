@@ -54,9 +54,7 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
   void initState() {
     super.initState();
 
-     WidgetsBinding.instance.addPostFrameCallback((_) {
     provider.clearSelection();
-  });
 
     provider
       ..onPickMax = _onPickMaxReached
