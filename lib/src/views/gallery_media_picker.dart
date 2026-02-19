@@ -54,6 +54,10 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
   void initState() {
     super.initState();
 
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+    provider.clearSelection();
+  });
+
     provider
       ..onPickMax = _onPickMaxReached
       ..onPickChanged = widget.pathList
@@ -63,9 +67,7 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
 
     _initPicker();
     _startGalleryObserver();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-    provider.clearSelection();
-  });
+   
   }
 
   // Initializes the picker by requesting permissions and loading album data.
@@ -147,6 +149,7 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
 
   @override
   void dispose() {
+     provider.clearSelection();
     _stopGalleryObserver();
     super.dispose();
   }
