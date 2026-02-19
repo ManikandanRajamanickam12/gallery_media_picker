@@ -63,6 +63,9 @@ class _GalleryMediaPickerState extends State<GalleryMediaPicker> {
 
     _initPicker();
     _startGalleryObserver();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+    provider.clearSelection();
+  });
   }
 
   // Initializes the picker by requesting permissions and loading album data.
